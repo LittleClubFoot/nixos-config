@@ -1,21 +1,42 @@
 { config, pkgs, ... }:
 
 {
+  environment.pathsToLink = [ "/libexec" ];
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.displayManager.defaultSession = "xfce+i3";
+  services.xserver = {
+    enable = true;
+    autorun = false;
 
-  # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = false;
-  services.xserver.windowManager.i3.enable = true;
+    # Enable the XFCE Desktop Environment.
+    displayManager.lightdm.enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+    };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu #application launcher most people use
+        i3status # gives you the default i3 status bar
+        i3lock #default i3 screen locker
+        # i3blocks #if you are planning on using i3blocks over i3status
+      ];
+    };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    # Enable touchpad support (enabled default in most desktopManager).
+    # libinput.enable = true;
+
+    # Configure keymap in X11
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 
   # Enable sound with pipewire.
@@ -36,5 +57,12 @@
 
   # Picom tools
   services.picom.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    feh
+    kitty
+    lxappearance
+    nerdfonts
+  ];
 }
 

@@ -13,7 +13,6 @@
       i3
       firefox
       kitty
-      thunar
       lxappearance
       flameshot
       redshift
