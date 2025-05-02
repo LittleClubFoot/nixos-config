@@ -8,6 +8,7 @@
     git
     curl
     nixpkgs-fmt
+    tree
     unzip
     vim
     wget
