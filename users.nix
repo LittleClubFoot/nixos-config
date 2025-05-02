@@ -4,7 +4,7 @@
   users.users.littlefoot = {
     isNormalUser = true;
     description = "LittleFoot";
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "adbusers" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       neovim
@@ -28,5 +28,7 @@
 
   programs.zsh.enable = true;
   programs.starship.enable = true;
+
+  programs.adb.enable = true;
 }
 
