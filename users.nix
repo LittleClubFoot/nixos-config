@@ -17,9 +17,6 @@
       flameshot
       redshift
 
-      # Fonts
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-
       # Dev
       gh
       gcc
