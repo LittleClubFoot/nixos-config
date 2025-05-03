@@ -8,6 +8,7 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       neovim
+      xclip
       zsh
       starship
       i3
