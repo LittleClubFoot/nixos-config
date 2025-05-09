@@ -21,6 +21,7 @@
       # Dev
       gh
       gcc
+      cargo
     ];
   };
 
