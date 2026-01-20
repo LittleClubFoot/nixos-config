@@ -15,5 +15,6 @@
   users.users.littlefoot = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
+    shell = pkgs.zsh;
   };
 }

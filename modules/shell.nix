@@ -1,9 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  programs.zsh.enable = true;
-  programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.theme = powerlevel10k/powerlevel10k;
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      customPkgs = [ pkgs.zsh-powerlevel10k ];
+      theme = "powerlevel10k/powerlevel10k";
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     zsh
@@ -12,7 +17,8 @@
     ripgrep
     bat
     fd
-    exa
+    eza
     tmux
+    meslo-lgs-nf  # Recommended font for powerlevel10k
   ];
 }

@@ -24,6 +24,7 @@
           ./modules/services/hyperland.nix
           ./modules/services/nas.nix
           ./modules/packages/all-packages.nix
+          ./modules/shell.nix
           home-manager.nixosModules.home-manager
         ];
         specialArgs = {
