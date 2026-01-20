@@ -17,8 +17,9 @@
         modules = [
           ./hosts/kamrui-e1.nix
           ./modules/services/base.nix
-          ./modules/services/hyperland.nix
           ./modules/services/home-server.nix
+          ./modules/services/hyperland.nix
+          ./modules/services/nas.nix
           ./modules/packages/all-packages.nix
           home-manager.nixosModules.home-manager
         ];
