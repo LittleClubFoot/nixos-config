@@ -7,5 +7,5 @@
       ListenAddress 0.0.0.0
     '';
   };
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [ 33 ];
 }
