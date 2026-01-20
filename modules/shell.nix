@@ -5,13 +5,17 @@
     enable = true;
     ohMyZsh = {
       enable = true;
-      customPkgs = [ pkgs.zsh-powerlevel10k ];
-      theme = "powerlevel10k/powerlevel10k";
+      theme = "";
     };
+    promptInit = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+    '';
   };
 
   environment.systemPackages = with pkgs; [
     zsh
+    zsh-powerlevel10k
     starship
     fzf
     ripgrep
@@ -19,6 +23,6 @@
     fd
     eza
     tmux
-    meslo-lgs-nf  # Recommended font for powerlevel10k
+    meslo-lgs-nf
   ];
 }
