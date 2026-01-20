@@ -17,4 +17,10 @@
     extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
   };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.littlefoot = import ../modules/home/littlefoot.nix;
+  };
 }
