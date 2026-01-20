@@ -1,12 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nasIp, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     cifs-utils
   ];
 
+  # NAS mounts - IP defined in flake.nix
   fileSystems."/mnt/nas/media" = {
-    device = "//192.168.1.100/Media";
+    device = "//${nasIp}/Media";
     fsType = "cifs";
     options = [
       "credentials=/root/.nascredentials"
@@ -23,7 +24,7 @@
   };
 
   fileSystems."/mnt/nas/workspaces" = {
-    device = "//192.168.1.100/workspaces";
+    device = "//${nasIp}/workspaces";
     fsType = "cifs";
     options = [
       "credentials=/root/.nascredentials"

@@ -10,6 +10,9 @@
   outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
+
+      # Shared configuration
+      nasIp = "192.168.1.100";  # Synology NAS IP address
     in
     {
       nixosConfigurations.kamrui-e1 = nixpkgs.lib.nixosSystem {
@@ -25,6 +28,7 @@
         ];
         specialArgs = {
           __root = self;
+          inherit nasIp;
         };
       };
     };
